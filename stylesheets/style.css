@@ -2,11 +2,56 @@ a{
 	text-decoration: none;
 }
 #body-header{
-	background-image: url(../images/back.jpg);
+	background-image: url(../images/back1.jpg);
+	/*background-image: linear-gradient(to right top, #0068ff, #00a4ff, #00cae0, #57e4ae, #def6a7);*/
 	height: 100vh;
 	background-size: cover;
-	background-position: center;
+	/*background-position: center;*/
 	background-attachment: fixed;
+}
+/*.navbar a{
+  padding: 16px 15px;
+  font-family: arial;
+  font-weight: bold;
+  color: white;
+}
+.navbar a:hover{
+  background-color: white;
+  color: black;
+}*/
+.navbar a{
+   align-items: center;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    outline: none;
+    position: relative;
+    z-index: 0;
+    background: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0 8px;
+    white-space: pre-wrap;
+}
+.navbar a::before{
+  	content: '';
+    display: block;
+    opacity: 0;
+    position: absolute;
+    transition-duration: .15s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #4285f4;
+    border-radius: 4px;
+    transform: scale(0);
+    transition-property: transform,opacity;
+}
+.navbar a:hover::before {
+    opacity: .6;
+    transform: scale(1);
 }
 .horizontal-list{
 	list-style: none;
@@ -14,7 +59,6 @@ a{
 	font-size: 30px;
 	text-align: center;
 }
-
 .horizontal-list li{
 	display: inline-block;
 }
@@ -50,7 +94,7 @@ a{
 }
 #body-header-content p{
 	font: 24px/1.9em 'librebaskerville-regular', serif;
-    color: #A8A8A8;
+    color: #d4d4d4;
     margin: 0 auto;
     width: 70%;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
@@ -61,10 +105,26 @@ a{
 }
 .body-header, .social-icons li img{
 	border-radius: 50%;
-	filter: brightness(90%);
+	opacity: 0.7;
+}
+.social-icons img:hover{
+	border-radius: 50%;
+	opacity: 1;
 }
 section{
 	height: 100vh;
+}
+#take-up img{
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	display: flex;
+	margin-left: 1400px;
+	margin-top: 100px;
+	opacity: 0.7;
+}
+#take-up img:hover{
+	opacity: 1;
 }
 /************************************************************************************************************************/
 .main-body{
@@ -72,7 +132,8 @@ section{
 	background-attachment: fixed;
 }
 #about{
-	background-color: #2B2B2B;
+	background-image: url(../images/about-img.png);
+	/*background-color: #2B2B2B;*/
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -80,8 +141,8 @@ section{
 }
 .about-lhs #main-photo{
 	display: inline-block;
-	width: 350px;
-	border-radius: 50%;
+	width: 400px;
+	border-radius: 25%;
 	margin-top: 150px;
 }
 section .about-lhs{
@@ -95,6 +156,7 @@ section .about-rhs{
 	width: 50%;
 	height: 100%;
 	vertical-align: top;
+	padding-top: 120px;
 }
 .about-rhs h1{
 	font: 22px/30px 'opensans-bold', sans-serif;
@@ -103,14 +165,61 @@ section .about-rhs{
 }
 .about-rhs p{
 	line-height: 27px;
-    color: #7A7A7A;
+    color: #d4d4d4;
     font-size: 27px;
 }
-.about-rhs #button{
-	display: inline-block;
-	width: 30%;
-	text-align: center;
+/* DOWNLOAD RESUME BUTTON*/
+/* Material style */
+button {
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 2px;
+  font-size: 22px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+  background: #2196F3;
 }
+
+/* Ripple magic */
+button{
+  position: relative;
+  overflow: hidden;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, .5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
 /************************************************************************************************************************/
 
 section .work-lhs{
@@ -137,27 +246,43 @@ section .work-rhs{
 	font-size: 30px;
 }
 .progress-bar{
-	height: 25px;
+	height: 30px;
 	background-color: #ececec;
-	margin-bottom: 50px; 
+	margin-bottom: 40px; 
+	border-radius: 50px;
+}
+.eighty-percent{
+	height: 100%;
+	background-color: #1b1818;
+	width: 80%;
+	border-radius: 50px;
+}
+.seventy-percent{
+	height: 100%;
+	background-color: #1b1818;
+	width: 70%;
+	border-radius: 50px;
 }
 .fifty-percent{
 	height: 100%;
 	background-color: #1b1818;
 	width: 50%;
+	border-radius: 50px;
 }
-.forty-percent{
+.sixty-percent{
 	height: 100%;
 	background-color: #1b1818;
-	width: 40%;
+	width: 60%;
+	border-radius: 50px;
 }
-.ninety-percent{
+.twenty-percent{
 	height: 100%;
 	background-color: #1b1818;
-	width: 90%;
+	width: 20%;
+	border-radius: 50px;
 }
 .work-rhs p{
-	font-size: 18px;
+	font-size: 22px;
 }
 /******************************************************************************************************************************/
 #images{

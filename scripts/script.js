@@ -25,9 +25,28 @@ $('#portfolio-link').click(function(){
         scrollTop: $("#images").offset().top
     }, 500);
 });
-$('#contact-link').click(function(){
-	$('html, body').animate({
-        scrollTop: $("#work").offset().top
+// $('#contact-link').click(function(){
+// 	$('html, body').animate({
+//         scrollTop: $("#work").offset().top
+//     }, 500);
+// });
+document.querySelector('#contact-link').addEventListener('click', (function(){
+    $('html, body').animate({
+        scrollTop: $("#about").offset().top
+    }, 500);
+}));
+$('#take-up').click(function(){
+    $('html, body').animate({
+        scrollTop: $("#body-header").offset().top
     }, 500);
 });
+
+document.getElementById("button").addEventListener('click', function(){
+    alert("Still working on this link")
+});
+
+
+
+
+
 
